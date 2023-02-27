@@ -5,82 +5,63 @@ output: html_document
 
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+
+>I choose the checkouts data of the Lord of the Rings book and all its related products such as LOTR films, sound recording of LOTR book and analysis of LOTR books and films, starting form 2005 to present, there are total 7383 observations in this dataset.
+
+>The Lord of the Rings by J.R.R Tolkien tells the story of freedom people united and fight to the dark lord Sauron in a called the Middle Earth. The Lord of the Rings is considered as the beginning of modern Western Fantasy Literature. Because its literary and interesting story, there are many Lord of the Rings derivatives such as films, analysis or animation.
+
+>I choose this dataset because I am a huge fan of Lord of the Rings, I have watched LOTR and Hobbit films for about ten times and read the LOTR books. I feel very exciting that I could have a chance to analyze LOTR related dataset!
+
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
-
-These will likely be calculated using your DPLYR skills, answering questions such as:
-
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
+>From 2005 to present, there are 46050 checkouts were recorded that are related to the Lord of the Rings in Seattle Public Library. Among all these 46050 checkouts, 67.5% of them are physical products and 32.5% of them are digital products. However, among all the checkouts in 2022 (the most recent full year), 91.5% of checkouts are digital products and only 8.5% percent are physical products. The data of year 2022 may shows the trends preferences of people about borrowing digital or physical products from libraries in recent years.
 
 ### The Dataset
 
-- Who collected/published the data?  
+- Who collected/published the data?
+
+> Seatte Public Library.
+
 - What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
+
+>UsageClass, dates, numbeof checkouts by month, material type, subject type, title and checkout type.
+Creators, publishers, publication year and ISBN number if applicable.
+
+- How was the data collected or generated?
+
+> I filtered data on "https://data.seattle.gov/Community/Checkouts-by-Title/tmmm-ytt6/explore" by "lord of rings" and the data is automically generated.
+
+- Why was the data collected? 
+
+> To study the trends about checkouts data and the trends of change of people's preferences.
+
+- What, if any, ethical questions do you need to consider when working with this data?
+
+> I don't think this data has any ethical questions because the published checkouts data is anonymous.
+
 - What are possible limitations or problems with this data?   (at least 200 words)
 
+>There are too many kinds of the Lord of the Rings books and the Lord of the Ring related products, and many of those are named in different ways, so it is hard for me to distinguish all of them correctly. For example, there are at least original English editions of Lord of the Rings books, Chinese Edition of Lord of the Rings books and digital edition of Lord of the Rings books, and there are even more than 3 titles of Lord of the Rings books. This conditions may lead to some not significant bias of the result becasue I may miss collecting some data or, for example, take a book that analysis the literary value of Lord of the Rings as the count of The Lord of the Rings book. These biases may slightly affect the result values or charts, becasue most records of checkouts are recorded in proper title and publishers. The second limitatation is that many of the observations don't have creators, this fact incresed the difficulty for me to distinguish an observation correctly, because, for example, if the creator of a book in this dataset is clearly J.R.R Tolkien, I can easily consider this book as the original Lord of the Rings book instead of related works. Moreover, this dataset only includes products that contain "lord of rings", so I may lost some records of products that related to LOTR but does not contain these three worlds in title when gathering the data. 
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+``````{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("chart1_example.R")}
 ```
+>I choose this chart because I noticed that in 2022, checkouts number of digital products is a lot higher than physical ones but if we count all the time, physical product total checkouts number is about two times to the number of digital ones. This two results are different so I want to study the trends of people's preferences between digital and physical products over time. I notice that checkouts for physical products shows a decreasing trend and checkouts for digital shows a fast increasing trend.
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
 ``````{r, echo = FALSE, code = readLines("chart2_example.R")}
 ```
+
+>I choose this chart because I noticed the decreasing trends of borrowing physical products, so I want do deeply study this phenomenon. There are many different kinds of products related to the Lord of the Rings. However, as a LOTR fan, according to my understanding, the majority of physical products must be books and videodiscs(film). So I choose this to material type to study their trends over time. I noticed that both books and videodiscs shows a trend of decreasing, by my analysis the high point at 2013 and 2011 is beacuse the publish of the Hobbit movie, and many people starting to read its related work, LOTR books and movies.
 
 ### Your Choice
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+``````{r, echo = FALSE, code = readLines("chart3_example.R")}
 ```
 
+>I choose this chart because I want to study the trends of people's preference of using library. To myself, I hardly visit libraries in recent year, so I thought that there should be a decreasing trend. The result surprised me. There is truly a slightly decreasing trend since 2006 to 2016 (high points in 2011 and 2013 is because the Hobbit movies were published). Hoever, since 2016, despite the influene of covid-19 at 2020, the checkouts number of SPL shows a surprsing increasing trend, and increasing rate is extremely high in 2021 and 2022.
 

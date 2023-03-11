@@ -1,20 +1,21 @@
 library(ggplot2)
 library(dplyr)
 library(tidyverse)
-data1 <- read.csv("Checkouts_by_Title.csv")
+df <- read.csv("Checkouts_by_Title.csv")
 
-e <- data1 %>%
+df <- df %>%
   group_by(CheckoutYear) %>%
   filter(CheckoutYear < 2023) %>%
-  summarise(num1 = sum(Checkouts))
+  summarise(number = sum(Checkouts))
 
-vd1 <- as.numeric(e$num1)
+checkoutsNumberByYear <- as.numeric(df$number)
 
 
 
-df <- data.frame(Year = rep(2005:2022), 
-                 CheckoutsNumber = vd1)
+chartData <- data.frame(Year = rep(2005:2022), 
+                 CheckoutsNumberByYear = checkoutsNumberByYear)
 
-ggplot(data = df, aes(x = Year, y = CheckoutsNumber)) +
+ggplot(data = chartData, aes(x = Year, y = CheckoutsNumberByYear)) +
   geom_line() +
-  ggtitle("Total Checkouts Number of SPL by Year")
+  ggtitle("Total Checkouts Number of SPL by Year") +
+  labs(y = "the Number of Checkouts of this Year")

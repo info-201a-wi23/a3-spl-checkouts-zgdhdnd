@@ -6,26 +6,30 @@ output: html_document
 ### Introduction
 
 
->I choose the checkouts data of the Lord of the Rings book and all its related products such as LOTR films, sound recording of LOTR book and analysis of LOTR books and films, starting form 2005 to present, there are total 7383 observations in this dataset.
+>I choose the checkouts data of the Lord of the Rings book and all its related products such as LOTR films, sound recording of LOTR book and analysis of LOTR books and films, starting from 2005 to present, there are total 7383 observations in this dataset.
 
->The Lord of the Rings by J.R.R Tolkien tells the story of freedom people united and fight to the dark lord Sauron in a called the Middle Earth. The Lord of the Rings is considered as the beginning of modern Western Fantasy Literature. Because its literary and interesting story, there are many Lord of the Rings derivatives such as films, analysis or animation.
+>The Lord of the Rings by J.R.R Tolkien tells the story of freedom people united and fight to the dark lord Sauron in a called the Middle Earth. The Lord of the Rings is considered as the beginning of modern Western Fantasy Literature. Because its literary and interesting story, there are many the Lord of the Rings derivatives such as films, analysis or animation.
 
 >I choose this dataset because I am a huge fan of Lord of the Rings, I have watched LOTR and Hobbit films for about ten times and read the LOTR books. I feel very exciting that I could have a chance to analyze LOTR related dataset!
 
 
 ### Summary Information
 
->From 2005 to present, there are 46050 checkouts were recorded that are related to the Lord of the Rings in Seattle Public Library. Among all these 46050 checkouts, 67.5% of them are physical products and 32.5% of them are digital products. However, among all the checkouts in 2022 (the most recent full year), 91.5% of checkouts are digital products and only 8.5% percent are physical products. The data of year 2022 may shows the trends preferences of people about borrowing digital or physical products from libraries in recent years.
+```{r, include=FALSE, warning = F, message = F}
+source("summary.R", local = knitr::knit_global())
+```
+
+From 2005 to present, there are `r totalCheckouts` checkouts were recorded that are related to the Lord of the Rings in Seattle Public Library. Among all these `r totalCheckouts` checkouts, `r percentagePhysical`% of them are physical products and `r percentageDigital`% of them are digital products. However, among all the checkouts in 2022 (the most recent full year), `r percentageDigital2022`% of checkouts are digital products and only `r percentagePhysical2022`% percent are physical products. The data of year 2022 may shows the trends preferences of people about borrowing digital or physical products from libraries in recent years.
 
 ### The Dataset
 
 - Who collected/published the data?
 
-> Seatte Public Library.
+> Seattle Public Library.
 
 - What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
 
->UsageClass, dates, numbeof checkouts by month, material type, subject type, title and checkout type.
+>Usage class, dates, number of checkouts by month, material type, subject type, title and checkout type.
 Creators, publishers, publication year and ISBN number if applicable.
 
 - How was the data collected or generated?
@@ -42,12 +46,13 @@ Creators, publishers, publication year and ISBN number if applicable.
 
 - What are possible limitations or problems with this data?   (at least 200 words)
 
->There are too many kinds of the Lord of the Rings books and the Lord of the Ring related products, and many of those are named in different ways, so it is hard for me to distinguish all of them correctly. For example, there are at least original English editions of Lord of the Rings books, Chinese Edition of Lord of the Rings books and digital edition of Lord of the Rings books, and there are even more than 3 titles of Lord of the Rings books. This conditions may lead to some not significant bias of the result becasue I may miss collecting some data or, for example, take a book that analysis the literary value of Lord of the Rings as the count of The Lord of the Rings book. These biases may slightly affect the result values or charts, becasue most records of checkouts are recorded in proper title and publishers. The second limitatation is that many of the observations don't have creators, this fact incresed the difficulty for me to distinguish an observation correctly, because, for example, if the creator of a book in this dataset is clearly J.R.R Tolkien, I can easily consider this book as the original Lord of the Rings book instead of related works. Moreover, this dataset only includes products that contain "lord of rings", so I may lost some records of products that related to LOTR but does not contain these three worlds in title when gathering the data. 
+>There are too many kinds of the Lord of the Rings books and the Lord of the Ring related products, and many of those are named in different ways, so it is hard for me to distinguish all of them correctly. For example, there are at least original English editions of Lord of the Rings books, Chinese Edition of Lord of the Rings books and digital edition of Lord of the Rings books, and there are even more than 3 titles of Lord of the Rings books. These conditions may lead to some not significant bias of the result because I may miss collecting some data or, for example, take a book that analysis the literary value of Lord of the Rings as the count of The Lord of the Rings book. These biases may slightly affect the result values or charts, because most records of checkouts are recorded in proper title and publishers. The second limitation is that many of the observations don't have creators, this fact increased the difficulty for me to distinguish an observation correctly, because, for example, if the creator of a book in this dataset is clearly J.R.R Tolkien, I can easily consider this book as the original Lord of the Rings book instead of related works. Moreover, this dataset only includes products that contain "lord of rings", so I may lose some records of products that related to LOTR but does not contain these three worlds in title when gathering the data. 
 
 ### First Trends Over Time Chart
 
 ``````{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("chart1_example.R")}
 ```
+
 >I choose this chart because I noticed that in 2022, checkouts number of digital products is a lot higher than physical ones but if we count all the time, physical product total checkouts number is about two times to the number of digital ones. This two results are different so I want to study the trends of people's preferences between digital and physical products over time. I notice that checkouts for physical products shows a decreasing trend and checkouts for digital shows a fast increasing trend.
 
 ### Second Trends Over Time Chart
@@ -55,7 +60,7 @@ Creators, publishers, publication year and ISBN number if applicable.
 ``````{r, echo = FALSE, code = readLines("chart2_example.R")}
 ```
 
->I choose this chart because I noticed the decreasing trends of borrowing physical products, so I want do deeply study this phenomenon. There are many different kinds of products related to the Lord of the Rings. However, as a LOTR fan, according to my understanding, the majority of physical products must be books and videodiscs(film). So I choose this to material type to study their trends over time. I noticed that both books and videodiscs shows a trend of decreasing, by my analysis the high point at 2013 and 2011 is beacuse the publish of the Hobbit movie, and many people starting to read its related work, LOTR books and movies.
+>I choose this chart because I noticed the decreasing trends of borrowing physical products, so I want do deeply study this phenomenon. There are different kinds of products related to the Lord of the Rings. However, as a LOTR fan, according to my understanding, most of the physical products must be books and videodiscs(film), so I choose this to material type to study their trends over time. I noticed that both books and videodiscs show a trend of decreasing, by my analysis the high point at 2013 and 2011 is because the publish of the Hobbit movie, and many people starting to read its related work, LOTR books and movies.
 
 ### Your Choice
 
@@ -63,5 +68,5 @@ Creators, publishers, publication year and ISBN number if applicable.
 ``````{r, echo = FALSE, code = readLines("chart3_example.R")}
 ```
 
->I choose this chart because I want to study the trends of people's preference of using library. To myself, I hardly visit libraries in recent year, so I thought that there should be a decreasing trend. The result surprised me. There is truly a slightly decreasing trend since 2006 to 2016 (high points in 2011 and 2013 is because the Hobbit movies were published). Hoever, since 2016, despite the influene of covid-19 at 2020, the checkouts number of SPL shows a surprsing increasing trend, and increasing rate is extremely high in 2021 and 2022.
+>I choose this chart because I want to study the trends of people's preference of using library. To myself, I hardly visit libraries in recent year, so I thought that there should be a decreasing trend. The result surprised me. There is truly a slightly decreasing trend since 2006 to 2016 (high points in 2011 and 2013 is because the Hobbit movies were published). However, since 2016, despite the influence of covid-19 at 2020, the checkouts number of SPL shows a surprising increasing trend, and increasing rate is extremely high in 2021 and 2022.
 
